@@ -11,7 +11,9 @@ module.exports = {
       // validate parameters:
       // carNumber: string, required
       let params = validate(req.body, {
-        carNumber: Joi.string().required()
+        carNumber: Joi.string()
+          .regex(/^[a-z0-9]+$/i)
+          .required()
       });
 
       let slotId = parkingLot.park(params.carNumber);
@@ -42,10 +44,15 @@ module.exports = {
   info: (req, res) => {
     try {
       if (isNaN(req.params.id)) {
+        let params = validate(req.params, {
+          id: Joi.string()
+            .regex(/^[a-z0-9]+$/i)
+            .required()
+        });
         // is NOT a number, which means its a car number
         res.send({
           success: true,
-          ...parkingLot.infoCarNumber(req.params.id)
+          ...parkingLot.infoCarNumber(params.id)
         });
       } else {
         let params = validate(req.params, {
@@ -59,7 +66,7 @@ module.exports = {
         // is a number, which means its a slot id
         res.send({
           success: true,
-          ...parkingLot.infoSlot(req.params.id)
+          ...parkingLot.infoSlot(params.id)
         });
       }
     } catch (ex) {

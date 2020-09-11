@@ -1,0 +1,28 @@
+{
+  "name": "test-nasdaily",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://eindrawan:UPfdi27uXmeQsmd@github.com/eindrawan/test-nasdaily.git"
+  },
+  "author": "Eri Indrawan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eindrawan/test-nasdaily/issues"
+  },
+  "homepage": "https://github.com/eindrawan/test-nasdaily#readme",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "joi": "^17.2.1",
+    "mocha": "^8.1.3"
+  }
+}
